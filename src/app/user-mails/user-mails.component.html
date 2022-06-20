@@ -1,0 +1,22 @@
+
+   
+    
+        <mat-action-list >
+            <div *ngFor="let mail of user?.mails">
+                
+                <button mat-list-item class="msglist" >
+            <p>
+                <mat-icon >check_box_outline_blank</mat-icon>
+                <mat-icon class="listicons">star_border</mat-icon>
+                <span class="sender" >{{mail.sender}}</span>
+        
+                <span class="subject" >{{mail.subject}}</span>
+                <span class="message" >{{mail.message}}</span>
+            </p>
+        </button>
+        </div>
+        </mat-action-list>
+            
+        
+        
+    

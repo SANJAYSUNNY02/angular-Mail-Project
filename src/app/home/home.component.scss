@@ -1,0 +1,79 @@
+img.logo{
+    width: 200px;
+    height:30px;
+   padding-left: 50px;
+   padding-right: 50px;
+    
+}
+.mat-form-filed.search{
+    margin-left: 50px;
+    
+}
+.lefticons{
+    float: right;
+}
+a{
+    color: grey;
+    padding:25px;
+    
+}
+.side-nav {
+    position: absolute;
+    top: 140px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }
+  button{
+     text-align: center;
+     width: 200px; 
+  }
+  .p1 {
+      padding-block: 10px;
+      box-sizing: inherit;
+      
+  }
+  button:hover{
+      background-color: rgb(218, 77, 77);
+  }
+  .demo-table {
+    width: 100%;
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  .mat-row:hover .mat-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }
+  .subject{
+      padding-left: 100px;
+      font-weight: 400;
+  }
+  .sender{
+      font-weight: 500;
+      padding-left: 40px;
+  }
+  .message{
+      padding-left: 50px;
+      font-weight: 200;
+  }
+  .listicons{
+      padding-left: 20px;
+  }
+  .msglist{
+      box-sizing:content-box;
+      border-radius: inherit;
+  }
+  .content-container{
+      height:90%;
+      margin-top: 50px;
+  }

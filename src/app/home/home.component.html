@@ -1,0 +1,60 @@
+<div class="nav">
+    <mat-card>
+        <div>
+            <a href="#list">
+                <mat-icon>menu</mat-icon>
+            </a>
+            <a href="https.gmail.in"><img class="logo" src="assets/mailLogo.jpg"></a>
+
+            <mat-form-field class="search">
+                <span matPrefix> </span>
+                <input type="tel" matInput placeholder="Search" name="search">
+                <button matSuffix mat-button>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </mat-form-field>
+
+
+            <a class="lefticons" href="#settings">
+                <mat-icon>settings</mat-icon>
+            </a>
+            <a class="lefticons" href="#apps">
+                <mat-icon>apps</mat-icon>
+            </a>
+            <a class="lefticons" href="#user">
+                <mat-icon>account_circle</mat-icon>
+            </a>
+
+        </div>
+
+
+    </mat-card>
+    <div>
+        <mat-sidenav-container class="side-nav">
+            <mat-sidenav mode="side" opened>
+                <div class="p1">
+                    <p class="inbox"><button mat-button class="button">Inbox</button></p>
+                    <p class="statted"><button mat-button class="button">startted </button></p>
+                    <p class="snoozed"><button mat-button class="button">snoozed</button></p>
+                    <p class="sent"><button mat-button class="button">sent</button></p>
+                    <p class="spam"><button mat-button class="button">spam</button></p>
+                    <p class="draft"><button mat-button class="button">Draft</button></p>
+                </div>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <div class="content-container">
+                    <div *ngFor="let user of users">
+                        <app-user-mails [user]="user"></app-user-mails>
+                        
+                    </div>
+                </div>
+
+                
+
+
+
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+
+    </div>
+</div>

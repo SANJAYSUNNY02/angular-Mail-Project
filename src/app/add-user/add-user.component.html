@@ -1,0 +1,91 @@
+<mat-card>
+    <div class="form-container">
+        <div class="add-user-button-container">
+            <button mat-raised-button color="primary" (click)="addUser()">
+                Add User
+            </button>
+        </div>
+        <form [formGroup]="addUsersFormGroup">
+            <div formArrayName="users">
+                <div *ngFor="let user of users.controls; let i = index">
+                    <div [formGroupName]="i">
+                        <div class="example-container">
+                            <mat-form-field apperance="fill">
+                                <mat-label>Email</mat-label>
+                                <input matInput formControlName="email" placeholder="Enter email" name="email">
+                            </mat-form-field>
+
+                        </div>
+                        <mat-error *ngIf="user.get('email')?.hasError('required') && user.get('email')?.touched">Please
+                            enter Email</mat-error>
+                        <div class="example-container">
+                            <mat-form-field apperance="fill">
+                                <mat-label>Password</mat-label>
+                                <input matInput formControlName="password" placeholder="Enter password" name="password">
+                            </mat-form-field>
+
+                        </div>
+                        <mat-error *ngIf="user.get('password')?.hasError('required') && user.get('password')?.touched">
+                            Please enter Password</mat-error>
+                        <div>
+                            <button mat-raised-button color="accent" (click)="addMail(i)">
+                                Add Mails
+                            </button>
+                            <div formArrayName="mails">
+                                <div *ngFor="let mail of getmails(i).controls; let j = index">
+                                    <div [formGroupName]="j">
+                                        <div class="example-container">
+                                            <mat-form-field apperance="fill">
+                                                <mat-label>Sender</mat-label>
+                                                <input matInput formControlName="sender"
+                                                    placeholder="enter name of sender" name="sender">
+                                            </mat-form-field>
+
+                                        </div>
+                                        <mat-error
+                                            *ngIf="user.get('sender')?.hasError('required') && user.get('sender')?.touched">
+                                            Please enter sender</mat-error>
+                                        <div class="example-container">
+                                            <mat-form-field apperance="fill">
+                                                <mat-label>Subject</mat-label>
+                                                <input matInput formControlName="subject" placeholder="Enter Subject"
+                                                    name="subject">
+                                            </mat-form-field>
+                                            
+                                        </div>
+                                        <mat-error
+                                            *ngIf="user.get('subject')?.hasError('required') && user.get('subject')?.touched">
+                                            Please enter subject</mat-error>
+                                        <div class="example-container">
+                                            <mat-form-field apperance="fill">
+                                                <mat-label>Message</mat-label>
+                                                <input matInput formControlName="message" placeholder="Enter message"
+                                                    name="message">
+                                            </mat-form-field>
+                                            
+                                        </div>
+                                        <mat-error
+                                            *ngIf="user.get('message')?.hasError('required') && user.get('message')?.touched">
+                                            Please enter sender</mat-error>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+        <div class="save-users-button-container">
+            <Button mat-raised-button color="accent" (click)="saveUsers()" [disabled]="addUsersFormGroup.invalid">
+                Save
+            </Button>
+        </div>
+    </div>
+
+</mat-card>
+<!-- <Button mat-raised-button color="accent" (click)="goToHome()" [disabled]="addUsersFormGroup.invalid">
+    Save
+</Button> -->

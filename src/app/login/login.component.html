@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-sm-6">
+        <img src="assets/email.jpg">
+
+    </div>
+    <div class="col-sm-6">
+        <form [formGroup]="loginBoxFormGroup">
+            <div class="loginBox-Container">
+                <p class="headings">Sign in to Gmail</p>
+                <mat-card>
+
+                    <div>
+                        <img class="logo" src="assets/logo.png">
+                        <div class="container">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Enter your email</mat-label>
+                                <input matInput placeholder="pat@example.com" formControlName="email">
+                                <mat-error *ngIf="loginBoxFormGroup.get('email')?.invalid">{{getEmailErrorMessage()}}</mat-error>
+  
+                            </mat-form-field>
+                            <!-- <mat-error *ngIF="loginBoxFormGroup.get('email')?.errors.required && loginBoxFormGroup?.get('email')?.touched" >Please Enter Email </mat-error> -->
+                        </div>
+                        <div class="container">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="loginBoxFormGroup.get('password')?.invalid">{{getPasswordErrorMessage()}}</mat-error>
+  
+                            </mat-form-field>
+                            <!-- <mat-error *ngIF="loginBoxFormGroup.get('password')?.errors.required && loginBoxFormGroup?.get('password')?.touched" >Please Enter Password </mat-error> -->
+                        </div>
+                        <div>
+
+                            <span>
+                                <button mat-raised-button (click)="login()" color="primary" [disabled]="!loginBoxFormGroup?.valid">Login</button>
+                            </span>
+                        </div>
+                    </div>
+
+
+
+
+                </mat-card>
+                <span>New User? <br>
+                    <button mat-raised-button (click)="signup()" color="primary">Sign up</button>
+
+                </span>
+            </div>
+        </form>
+    </div>
+
+</div>
