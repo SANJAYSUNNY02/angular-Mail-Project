@@ -19,6 +19,12 @@ import {MatListModule} from '@angular/material/list';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UserMailsComponent } from './user-mails/user-mails.component';
 import { GmailnavComponent } from './gmailnav/gmailnav.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 
@@ -51,7 +57,9 @@ import { GmailnavComponent } from './gmailnav/gmailnav.component';
     MatSidenavModule,
     MatTableModule,
     MatListModule,
-    
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    HttpClientModule
 
 
 

@@ -1,10 +1,20 @@
-export interface Mail{
-    sender:string;
-    subject:string;
-    message:string;
+export class Mail{
+    constructor(public sender:string,
+       public subject:string,
+        public message:string){
+
+        }
 }
-export interface Users{
-    email: string;
-    password: string;
-    mails: Mail[];
+export class Users{
+    
+    constructor(public email: string,
+        public password: string,
+        public mails: Mail[]){
+
+    }
+}
+export class NewUsers{
+constructor(public users:Users[]){
+
+}
 }

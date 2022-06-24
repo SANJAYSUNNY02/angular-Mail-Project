@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MailsService } from '../services/mails.service'
+import { Mail, NewUsers, Users } from '../user-mails/user-mails';
 
 
 @Component({
@@ -53,8 +54,16 @@ export class AddUserComponent implements OnInit {
 
   saveUsers(): void{
     // console.log("form group",this.addUsersFormGroup.value);
+    const users: Users[]=[];
     if(this.addUsersFormGroup?.value){
-      this.mailsService.addUser(this.addUsersFormGroup.value.users);
+      for(let user of this.addUsersFormGroup.value.users){
+        const mails:Mail[]=[];
+        for(let mail of user.mails){
+          mails.push(new Mail(mail.sender,mail.subject,mail.message));
+        }
+        users.push(new Users(user.email,user.password,mails));
+      }
+      this.mailsService.addUser(new NewUsers(users));
     }
     this.router.navigate(["login"]);
   }

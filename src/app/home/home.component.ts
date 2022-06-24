@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoginSerService } from '../services/login-ser.service';
 import { MailsService } from '../services/mails.service';
-import { Users } from '../user-mails/user-mails';
+import { NewUsers, Users } from '../user-mails/user-mails';
 
 
 
@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
     private loginSerService: LoginSerService) { }
  
   ngOnInit(): void {
-    this.mailsService.users$.subscribe((users: Users[]) => {
+    this.mailsService.getUsers().subscribe((users: NewUsers) => {
       const loginUser=this.loginSerService.user;
-      this.users=users.filter((user:Users) => user.email === loginUser?.email && user.password===loginUser?.password );
+      this.users=users.users.filter((user:Users) => user.email === loginUser?.email && user.password===loginUser?.password );
 console.log(users);
     })
   }
